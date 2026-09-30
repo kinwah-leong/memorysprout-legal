@@ -12,5 +12,6 @@ python3 scripts/generate-legal-html.py
 
 GitHub Pages should serve the repo root. URLs:
 
-- `./legal/privacy-en.html`
-- `./legal/terms-en.html`
+- `./legal/privacy.html` (EN | 中文 toggle)
+- `./legal/terms.html` (EN | 中文 toggle)
+- App embed: add `?embed=1&lang=en` or `lang=zh-Hans`

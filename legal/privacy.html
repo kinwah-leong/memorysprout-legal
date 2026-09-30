@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Privacy Policy · MemorySprout</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html"><strong>MemorySprout</strong> Legal</a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">English</button>
+        <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div class="lang-panel" data-lang="en">
+      <h1>Privacy Policy</h1>
+      <div class="meta">
+        <p></p>
+        <p>MemorySprout · Developer: ManLin Zhao</p>
+      </div>
+      <article>
+<p>Effective date: 2026-09-30</p>
+<p>Last updated: 2026-09-30</p>
+<h2 id="1-who-we-are">1. Who we are</h2>
+<p>MemorySprout is developed and operated by the individual developer <strong>ManLin Zhao</strong>, whose correspondence address is <strong>[TO BE COMPLETED: correspondence address]</strong> (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). We are responsible for the personal information described in this Policy.</p>
+<p>Privacy contact: [TO BE COMPLETED: privacy contact email]</p>
+<p>Support contact: [TO BE COMPLETED: support contact email]</p>
+<p>Website: [TO BE COMPLETED: public website URL]</p>
+<p>MemorySprout is an iOS app that helps you turn selected photos into Memories: cloud AI analysis can produce a short Story and related generated imagery (such as postcard-style artwork), which you can edit, save, and share. This Policy explains how we handle information when you use the app and its supporting backend services. It covers both in-app SDKs and providers reached through our server APIs.</p>
+<h2 id="2-information-we-process">2. Information we process</h2>
+<p><strong>Photos and Memory content.</strong> We process the photos you choose and upload for Create / Sprout, compressed copies used for analysis, generated Stories and artwork, edits you make, and related Memory records. Photos may contain faces, other people, text, locations, or sensitive details.</p>
+<p><strong>Photo metadata.</strong> On device we may read EXIF and GPS information from a selected photo to derive capture time and, when helpful, an approximate place label. <strong>Raw GPS coordinates are not stored on our servers.</strong> We may store a boolean flag indicating whether the photo contained location metadata (<code>contains_location_metadata</code>). Unnecessary EXIF is not required for cloud storage of your Memory assets.</p>
+<p><strong>Account and authentication.</strong> You can use core features with a guest / anonymous session. If you sign in with <strong>Sign in with Apple</strong> or <strong>Google</strong>, we receive the account information permitted by your authorization, such as a provider user identifier and any name or email you choose to share. Apple may provide a Hide My Email relay address instead of your real email. We process authentication tokens as needed to verify sign-in and maintain your MemorySprout session. We do not receive your Apple ID or Google password. Signing in does not authorize us to access your Apple Photos library, Google Photos, Gmail, contacts, or other unrelated provider content.</p>
+<p>Google Sign-In uses the standard identity scopes needed for sign-in (typically OpenID / email / profile). We do not request Google Photos or Drive scopes.</p>
+<p><strong>Usage analytics.</strong> We use Google Analytics for Firebase to understand product usage (for example app interactions and events, session information, app-instance identifiers, device model, OS, app version, language, and approximate region). Analytics collection is enabled in the app. There is currently <strong>no separate in-app analytics opt-out toggle</strong>; you can use iOS system privacy controls that apply to your device.</p>
+<p><strong>Crash and diagnostics.</strong> We use Firebase Crashlytics for crash reports, stack traces, app/device information, and installation identifiers. We may also send limited, non-secret diagnostic events to our backend (for example stable error codes and durations) to troubleshoot client-server issues. We do not intentionally put passwords, identity tokens, or full email addresses into diagnostic payloads.</p>
+<p><strong>Operational logs.</strong> Our backend and infrastructure providers may process request metadata such as IP addresses, timestamps, and status codes as configured for security and reliability.</p>
+<p><strong>Support.</strong> If you contact us, we process the contact details and message content you provide so we can respond.</p>
+<h2 id="3-how-and-why-we-use-information">3. How and why we use information</h2>
+<p>We use information to:</p>
+<ul>
+<li>provide Memory creation, Story / artwork generation, editing, saving, and sharing;</li>
+<li>authenticate users, maintain guest and signed-in sessions, and sync Memories across devices when you are signed in;</li>
+<li>reclaim guest Memories to your account after sign-in where that feature applies;</li>
+<li>improve stability and understand product usage;</li>
+<li>prevent abuse and meet legal obligations.</li>
+</ul>
+<p>Where European Economic Area or UK data protection law applies, our legal bases include: performance of a contract for processing needed to deliver the service you request; consent where the law requires it for optional processing; legitimate interests for proportionate security, abuse prevention, and necessary diagnostics after balancing your rights; and compliance with legal obligations.</p>
+<p>Starting Create / Sprout with a selected photo is your request to process that photo through our cloud pipeline, including third-party AI providers described below. If you do not want a photo processed in the cloud, do not submit it for Create / Sprout.</p>
+<h2 id="4-cloud-ai-processing">4. Cloud AI processing</h2>
+<p>When you create a Memory, your selected photo (typically a compressed analysis copy) and related prompts or context travel through <strong>MemorySprout Edge Functions hosted on Supabase</strong>, then to one or more AI providers configured for that environment. Depending on configuration, providers may include:</p>
+<ul>
+<li><strong>DeepSeek</strong> (analysis);</li>
+<li><strong>OpenRouter</strong> (analysis and/or image generation; may route to models such as Google Gemini image models);</li>
+<li><strong>Alibaba Cloud DashScope / Qwen</strong> (analysis and/or image generation when enabled).</li>
+</ul>
+<p>Inputs can include image bytes and text context needed for Story analysis or postcard-style generation. Outputs include Story text, structured analysis fields, and generated image URLs or assets we associate with your Memory.</p>
+<p>We do <strong>not</strong> use your photos or Stories to train our own AI models. Third-party providers process inputs to return results under their terms and our API configuration; they may retain limited data for abuse monitoring or as stated in their policies. We do not sell your photos for advertising.</p>
+<p>AI-generated Stories and artwork are creative interpretations and may be inaccurate. They are not reliable statements about a person’s identity, health, emotions, or history. Upload only photos you have the right to use and share for this purpose. Avoid submitting sensitive personal data or identifiable photos of children unless you have the required authorization.</p>
+<p>You can stop future AI processing by not creating new Memories. Deletion of already processed content is described below.</p>
+<h2 id="5-device-permissions-and-your-choices">5. Device permissions and your choices</h2>
+<p><strong>Photos.</strong> Selection uses the system photo picker. We only process photos you select for Create / Sprout or related flows. Access to a photo on your device does not by itself mean it has been uploaded for AI processing.</p>
+<p><strong>Location.</strong> If a selected photo lacks EXIF coordinates, the app may request Location When In Use to help resolve an approximate place for display. Coordinates are used on device for that purpose and are not stored as raw GPS on our servers.</p>
+<p><strong>Export and share.</strong> Saving or sharing a Memory uses iOS share / Photos flows you initiate. Content you export is subject to the destination you choose.</p>
+<p><strong>Sign-in management.</strong> Profile → Account → Sign-in Methods lets you manage Apple / Google links when signed in. Sign out, revoke provider authorization, delete the app, Clear Personal Data, and Delete Account are different actions.</p>
+<h2 id="6-when-we-disclose-information">6. When we disclose information</h2>
+<p>We disclose information to providers that help deliver the service, including:</p>
+<ul>
+<li><strong>Supabase</strong> - authentication, Postgres database, object storage for uploaded photos and generated assets, and Edge Functions;</li>
+<li><strong>Apple</strong> - Sign in with Apple;</li>
+<li><strong>Google</strong> - Google Sign-In, Firebase Analytics, Firebase Crashlytics;</li>
+<li><strong>AI providers</strong> listed in Section 4.</li>
+</ul>
+<p>Google privacy information: https://policies.google.com/privacy</p>
+<p>Firebase privacy: https://firebase.google.com/support/privacy</p>
+<p>Supabase privacy: https://supabase.com/privacy</p>
+<p>We require providers that process information on our behalf to apply appropriate contractual and security protections consistent with this Policy and applicable law.</p>
+<p>We may disclose information when legally required, to protect rights or safety, or in connection with a transfer of the app or related assets subject to applicable safeguards. Information you deliberately share or export is received by the destination you choose.</p>
+<p><strong>Advertising, sale, and tracking.</strong> We do not sell personal information. We do not use your Memory photos for cross-context behavioral advertising. The app is not configured around IDFA-based advertising tracking. Product analytics via Firebase is used to improve MemorySprout, not to sell ads.</p>
+<h2 id="7-storage-and-retention">7. Storage and retention</h2>
+<p>Primary hosting and storage for account and Memory data is provided by <strong>Supabase</strong> (database and object storage). Processing regions depend on our Supabase project configuration and the regions used by AI providers.</p>
+<p>Retention for photos, generated artwork, Stories, and account records depends on:</p>
+<ul>
+<li>whether you continue using the account;</li>
+<li>whether you delete individual Memories or clear personal data;</li>
+<li>whether you delete your account;</li>
+<li>legal, security, or backup requirements.</li>
+</ul>
+<p>We do <strong>not</strong> apply a fixed automatic “delete after 90 days” rule to your Memory assets. We will not arbitrarily delete photos or generated content that represent your personal data assets unless you request deletion, the account is deleted, or law / security requires it.</p>
+<p>Approximate practices for related systems:</p>
+<ul>
+<li><strong>Firebase Crashlytics:</strong> Google currently describes approximately 90 days before crash traces and associated identifiers begin to be removed from live and backup systems.</li>
+<li><strong>Analytics:</strong> retained according to the Firebase project configuration.</li>
+<li><strong>Operational logs and backups:</strong> retained for security and recovery on rotating schedules; residual copies may briefly outlive primary deletion.</li>
+<li><strong>AI provider copies:</strong> subject to each provider’s API and abuse-monitoring retention.</li>
+</ul>
+<p>Content saved only on your device or shared with others is not automatically deleted when we delete our copies.</p>
+<h2 id="8-account-deletion-and-personal-data-removal">8. Account deletion and personal data removal</h2>
+<p>You can manage data in the app:</p>
+<ul>
+<li><strong>Clear Personal Data:</strong> Profile → Account → Clear Personal Data (removes uploaded / Memory data associated with the current account path as implemented).</li>
+<li><strong>Delete Account:</strong> Profile → Account → Delete Account (permanent account deletion after confirmation).</li>
+</ul>
+<p>You may also contact [TO BE COMPLETED: privacy contact email] for assistance.</p>
+<p>After account deletion, we delete or anonymize account-related data within a reasonable period, including authentication records, uploaded photos, generated artwork, Stories, and related history, subject to:</p>
+<ul>
+<li>legal obligations;</li>
+<li>security and fraud prevention;</li>
+<li>backup rotation cycles;</li>
+<li>provider deletion timelines.</li>
+</ul>
+<p>Deleting your account does <strong>not</strong> automatically remove:</p>
+<ul>
+<li>files already saved locally on your device;</li>
+<li>content you shared with others;</li>
+<li>copies retained by third-party destinations you chose;</li>
+<li>your Apple or Google account itself.</li>
+</ul>
+<h2 id="9-your-privacy-rights">9. Your privacy rights</h2>
+<p>Depending on where you live, you may have rights to access, correct, delete, restrict or object to processing, receive a portable copy, withdraw consent, and complain to a supervisory authority. Where sale / sharing / targeted advertising rights apply, our practices in Section 6 describe what we do and do not do.</p>
+<p>Submit requests to [TO BE COMPLETED: privacy contact email]. We verify requests proportionately, respond within applicable deadlines, and explain any lawful refusal. We do not unlawfully discriminate against you for exercising privacy rights.</p>
+<p>For California residents, where the CCPA applies: categories, sources, purposes, retention criteria, and recipients are described in Sections 2-7. We do not sell personal information and do not share it for cross-context behavioral advertising as those terms are commonly defined.</p>
+<h2 id="10-international-transfers">10. International transfers</h2>
+<p>Your information may be processed outside your country, including in regions used by Supabase, Google, Apple, and AI providers. Those countries may have different privacy laws. Where required, we rely on appropriate transfer safeguards (for example adequacy decisions or standard contractual clauses) together with supplementary measures where necessary. Contact [TO BE COMPLETED: privacy contact email] for more information about transfers.</p>
+<h2 id="11-children">11. Children</h2>
+<p>MemorySprout is intended for users aged <strong>13</strong> or older (or the higher age required in your country). It is not directed to children below that age. We do not knowingly collect personal information from users below the applicable minimum age without a valid legal basis and any required parental authorization. If you believe a child has provided information improperly, contact [TO BE COMPLETED: privacy contact email].</p>
+<p>Uploading a photo that contains a child is separate from the age of the person using the app; required authorization still applies.</p>
+<h2 id="12-security-and-updates">12. Security and updates</h2>
+<p>We use reasonable safeguards appropriate to the information and risks, including encrypted transport (HTTPS), access controls on backend services, and separation of secrets from the client app. No system can guarantee absolute security.</p>
+<p>We update this Policy when practices or legal obligations change. We post the revised date and provide notice of material changes; we obtain fresh consent where required. Publishing a new Policy is not, by itself, consent to a new use of your information.</p>
+<h2 id="13-contact">13. Contact</h2>
+<p>Individual developer: <strong>ManLin Zhao</strong></p>
+<p>Correspondence address: <strong>[TO BE COMPLETED: correspondence address]</strong></p>
+<p>Privacy email: [TO BE COMPLETED: privacy contact email]</p>
+<p>Support email: [TO BE COMPLETED: support contact email]</p>
+<p>Website: [TO BE COMPLETED: public website URL]</p>
+      </article>
+      <nav class="web-only-nav" aria-label="Related">
+        <a href="terms.html">Terms of Use</a>
+      </nav>
+    </div>
+
+    <div class="lang-panel" data-lang="zh" hidden>
+      <h1>隐私政策</h1>
+      <div class="meta">
+        <p></p>
+        <p>MemorySprout · 开发者：赵曼琳（ManLin Zhao）</p>
+      </div>
+      <article>
+<p>生效日期：2026-09-30</p>
+<p>最后更新日期：2026-09-30</p>
+<p>通信地址与适用法律管辖地仍标为【待填写】，须在正式上架前补全。</p>
+<h2 id="1-关于我们及本政策">1 关于我们及本政策</h2>
+<p>MemorySprout 由个人开发者<strong>ManLin Zhao</strong>开发和运营，通信地址为<strong>【待填写：通信地址】</strong>。本政策中的“我们”均指该开发者。我们对所述个人信息处理承担责任。</p>
+<p>隐私联系：【待填写：隐私联系邮箱】</p>
+<p>支持联系：【待填写：支持联系邮箱】</p>
+<p>网站：【待填写：公开网站 URL】</p>
+<p>MemorySprout 是一款 iOS 应用，帮助您将所选照片转化为 Memory：云端 AI 可生成简短 Story 及相关成片（如明信片风格图像），您可编辑、保存与分享。本政策说明您使用应用及相关后台服务时我们如何处理信息，既覆盖应用内 SDK，也覆盖通过服务器 API 调用的服务商。</p>
+<h2 id="2-处理的信息">2 处理的信息</h2>
+<p><strong>照片与 Memory 内容。</strong> 我们处理您在 Create / Sprout 中选择并上传的照片、用于分析的压缩图、生成的 Story 与成片、您的编辑结果及相关 Memory 记录。照片可能包含人脸、他人、文字、位置或敏感信息。</p>
+<p><strong>照片元数据。</strong> 本机可能读取所选照片的 EXIF / GPS，用于推断拍摄时间，并在需要时生成大致地点标签。<strong>原始 GPS 坐标不会入库。</strong> 我们可能仅保存“该照片是否含有位置元数据”的布尔标志（<code>contains_location_metadata</code>）。云端保存 Memory 资产不要求保留多余 EXIF。</p>
+<p><strong>账户与认证。</strong> 您可以以访客 / 匿名会话使用核心功能。若使用 <strong>通过 Apple 登录</strong> 或 <strong>Google 登录</strong>，我们会接收您授权范围内的账户信息，例如提供方用户标识，以及您选择共享的姓名或电子邮箱。Apple 可能提供“隐藏我的邮箱”转发地址。我们处理维持会话所需的认证信息。我们不会获取您的 Apple ID 或 Google 密码。登录本身不授权我们访问 Apple 相册、Google 相册、Gmail、通讯录或其他无关服务。</p>
+<p>Google 登录使用标准身份范围（通常为 OpenID / email / profile），不申请 Google Photos 或 Drive 权限。</p>
+<p><strong>使用统计。</strong> 我们使用 Google Analytics for Firebase 了解产品使用情况（例如交互事件、会话、应用实例标识、设备型号、系统、版本、语言及大致地区）。应用内已启用 Analytics，<strong>目前没有单独的应用内统计开关</strong>；您可使用 iOS 系统提供的相关隐私控制。</p>
+<p><strong>崩溃与诊断。</strong> 我们使用 Firebase Crashlytics 处理崩溃报告、堆栈、应用/设备信息与安装标识。还可能向后端发送有限、非密钥的诊断事件（例如稳定错误码与耗时）以便排查联调问题。我们不会故意将密码、身份令牌或完整邮箱写入诊断载荷。</p>
+<p><strong>运行日志。</strong> 后台与基础设施服务商可能按配置处理 IP、时间戳、状态码等请求元数据。</p>
+<p><strong>支持。</strong> 您联系我们时，我们处理您提供的联系方式与消息内容以便回复。</p>
+<h2 id="3-处理目的及法律依据">3 处理目的及法律依据</h2>
+<p>我们使用相关信息以：</p>
+<ul>
+<li>提供 Memory 创建、Story / 成片生成、编辑、保存与分享；</li>
+<li>认证用户、维持访客与登录会话，并在登录后支持跨设备同步；</li>
+<li>在适用情况下将访客 Memory 归属到登录账户；</li>
+<li>改善稳定性并了解产品使用；</li>
+<li>防止滥用并履行法律义务。</li>
+</ul>
+<p>如适用欧洲经济区或英国数据保护法律，处理依据包括：为提供您请求的服务而履行合同；依法需同意时的同意；在权衡您的权益后基于合法利益开展适度的安全、防滥用与必要诊断；以及履行法律义务。</p>
+<p>您选择照片并开始 Create / Sprout，即表示请求将该照片经我们的云端流程处理（含下文第三方 AI）。若您不希望照片进入云端处理，请勿提交 Create / Sprout。</p>
+<h2 id="4-云端-ai-处理">4 云端 AI 处理</h2>
+<p>创建 Memory 时，所选照片（通常为压缩分析图）及相关提示/上下文会经 <strong>托管在 Supabase 上的 MemorySprout Edge Functions</strong>，再发送至当前环境配置的一个或多个 AI 服务商。视配置可能包括：</p>
+<ul>
+<li><strong>DeepSeek</strong>（分析）；</li>
+<li><strong>OpenRouter</strong>（分析及/或生图；可能路由至如 Google Gemini 图像模型等）；</li>
+<li><strong>阿里云 DashScope / 通义千问</strong>（在启用时用于分析及/或生图）。</li>
+</ul>
+<p>输入可包含图像字节及 Story 分析或明信片生成所需的文本上下文。输出包括 Story 文本、结构化分析字段，以及与您的 Memory 关联的生成图像资源。</p>
+<p>我们<strong>不会</strong>用您的照片或 Story 训练自有 AI 模型。第三方服务商按自身条款及我们的 API 配置处理输入以返回结果；可能因滥用监测或按其政策短暂留存。我们不会出售您的照片用于广告。</p>
+<p>AI 生成的 Story 与成片属于创作性解释，可能不准确，不能作为关于人物身份、健康、情绪或经历的可靠事实陈述。请仅上传您有权使用且有权分享的照片。除非已取得必要授权，请避免提交敏感个人信息或可识别儿童身份的照片。</p>
+<p>停止创建新的 Memory 即可停止后续 AI 处理。已处理内容的删除见下文。</p>
+<h2 id="5-设备权限及您的选择">5 设备权限及您的选择</h2>
+<p><strong>照片。</strong> 通过系统照片选择器选取；我们仅处理您为 Create / Sprout 等相关流程选择的照片。允许访问设备照片本身，不等于已同意上传至云端 AI。</p>
+<p><strong>位置。</strong> 若所选照片缺少 EXIF 坐标，应用可能请求“使用期间的位置”以解析大致地点用于展示。坐标用于本机解析，<strong>不会以原始 GPS 形式入库</strong>。</p>
+<p><strong>导出与分享。</strong> 保存或分享 Memory 使用您发起的 iOS 分享 / 相册流程，目的地规则由其自行适用。</p>
+<p><strong>登录管理。</strong> 个人中心 → 账户 → 登录方式，可管理 Apple / Google 关联。退出登录、撤销提供方授权、删除应用、清除个人数据与注销账户是不同操作。</p>
+<h2 id="6-信息披露及服务商">6 信息披露及服务商</h2>
+<p>我们会向协助提供服务的服务商披露信息，包括：</p>
+<ul>
+<li><strong>Supabase</strong> - 认证、Postgres、对象存储（上传照片与生成资产）及 Edge Functions；</li>
+<li><strong>Apple</strong> - 通过 Apple 登录；</li>
+<li><strong>Google</strong> - Google 登录、Firebase Analytics、Firebase Crashlytics；</li>
+<li><strong>第 4 节所列 AI 服务商</strong>。</li>
+</ul>
+<p>Google 隐私说明：https://policies.google.com/privacy</p>
+<p>Firebase 隐私：https://firebase.google.com/support/privacy</p>
+<p>Supabase 隐私：https://supabase.com/privacy</p>
+<p>对于代表我们处理信息的服务商，我们要求其采取与本政策及适用法律相符的合同与安全保护。</p>
+<p>我们可能在法律要求、保护合法权益或安全所必需时披露信息；应用或相关业务转让时，也可能在适用保障下转移信息。您主动分享或导出的信息由您选择的目的地接收。</p>
+<p><strong>广告、出售与追踪。</strong> 我们不出售个人信息。我们不会将 Memory 照片用于跨情境行为广告。应用不以基于 IDFA 的广告追踪为核心配置。Firebase 产品分析用于改进 MemorySprout，而非售卖广告。</p>
+<h2 id="7-存储及保存期限">7 存储及保存期限</h2>
+<p>账户与 Memory 数据的主要托管与存储由 <strong>Supabase</strong>（数据库与对象存储）提供。处理地区取决于我们的 Supabase 项目配置及 AI 服务商所在地区。</p>
+<p>照片、成片、Story 与账户记录的保存期限取决于：</p>
+<ul>
+<li>您是否继续使用账户；</li>
+<li>您是否删除单条 Memory 或清除个人数据；</li>
+<li>您是否注销账户；</li>
+<li>法律、安全或备份要求。</li>
+</ul>
+<p>我们<strong>不会</strong>对 Memory 资产适用固定的“满 90 天自动删除”规则。除非您请求删除、账户已注销，或法律/安全要求，我们不会随意删除作为您个人数据资产保存的照片或生成内容。</p>
+<p>相关系统大致情况：</p>
+<ul>
+<li><strong>Firebase Crashlytics：</strong> Google 当前说明约为 90 天后开始从线上及备份系统删除崩溃堆栈及关联标识。</li>
+<li><strong>Analytics：</strong> 按 Firebase 项目配置留存。</li>
+<li><strong>运行日志与备份：</strong> 按安全与恢复需要轮转；主删除后可能短暂残留。</li>
+<li><strong>AI 服务商副本：</strong> 受各服务商 API 及滥用监测留存规则约束。</li>
+</ul>
+<p>仅保存在您设备或已分享给他人的内容，不会因我们删除己方副本而自动消失。</p>
+<h2 id="8-账号删除和个人数据删除">8 账号删除和个人数据删除</h2>
+<p>您可在应用内管理数据：</p>
+<ul>
+<li><strong>清除个人数据：</strong> 个人中心 → 账户 → 清除个人数据（按实现删除与当前账户路径关联的上传 / Memory 数据）。</li>
+<li><strong>注销账户：</strong> 个人中心 → 账户 → 注销账户（确认后永久注销）。</li>
+</ul>
+<p>也可联系 【待填写：隐私联系邮箱】 寻求协助。</p>
+<p>账户注销后，我们将在合理期限内删除或匿名化账户相关数据，包括认证信息、上传照片、生成成片、Story 及相关历史，但仍受以下约束：</p>
+<ul>
+<li>法律义务；</li>
+<li>安全与防欺诈；</li>
+<li>备份轮转周期；</li>
+<li>服务商删除时限。</li>
+</ul>
+<p>注销账户<strong>不会</strong>自动删除：</p>
+<ul>
+<li>已保存在设备本地的文件；</li>
+<li>您已分享给他人的内容；</li>
+<li>您选择的第三方目的地中的副本；</li>
+<li>您的 Apple 或 Google 账户本身。</li>
+</ul>
+<h2 id="9-您的隐私权利">9 您的隐私权利</h2>
+<p>根据所在地及适用法律，您可能享有查阅、更正、删除、限制或反对处理、数据可携带、撤回同意，以及向监管机构投诉等权利。若涉及出售/共享/定向广告相关权利，第 6 节说明了我们实际做什么与不做什么。</p>
+<p>请将请求发送至 【待填写：隐私联系邮箱】。我们会进行适度核验，在法定期限内回应，并说明依法拒绝的理由。我们不会因您行使隐私权而实施违法歧视。</p>
+<p>对于加州居民，在 CCPA 适用时：收集类别、来源、目的、保存标准及接收方见第 2-7 节。我们不出售个人信息，也不为跨情境行为广告共享个人信息（按通常定义）。</p>
+<h2 id="10-国际数据传输">10 国际数据传输</h2>
+<p>您的信息可能在您所在国家或地区之外处理，包括 Supabase、Google、Apple 及 AI 服务商使用的地区。不同国家可能适用不同隐私法律。如有法律要求，我们会采用适当的转移保障（例如充分性认定或标准合同条款），并在必要时采取补充措施。更多信息请联系 【待填写：隐私联系邮箱】。</p>
+<h2 id="11-儿童及年龄要求">11 儿童及年龄要求</h2>
+<p>MemorySprout 面向年满 <strong>13</strong> 岁（或您所在国家要求的更高年龄）的用户，不以低于该年龄的儿童为目标。对于低于适用最低年龄的用户，我们不会在缺乏有效法律依据及必要监护人授权的情况下，明知而收集其个人信息。如您认为儿童不当提供了信息，请联系 【待填写：隐私联系邮箱】。</p>
+<p>照片中是否包含儿童，与应用使用者的年龄是不同问题；所需授权仍然适用。</p>
+<h2 id="12-安全及政策更新">12 安全及政策更新</h2>
+<p>我们根据所处理信息及相关风险采取合理保护措施，包括 HTTPS 传输加密、后台访问控制，以及密钥与客户端分离。任何系统都无法保证绝对安全。</p>
+<p>数据处理方式或法律义务变化时，我们会更新本政策、公布修订日期，并对重大变化提供通知；如依法需要，将重新取得同意。发布新版政策本身不代表您已同意将信息用于新的目的。</p>
+<h2 id="13-联系我们">13 联系我们</h2>
+<p>个人开发者：<strong>ManLin Zhao</strong></p>
+<p>通信地址：<strong>【待填写：通信地址】</strong></p>
+<p>隐私邮箱：【待填写：隐私联系邮箱】</p>
+<p>支持邮箱：【待填写：支持联系邮箱】</p>
+<p>网站：【待填写：公开网站 URL】</p>
+      </article>
+      <nav class="web-only-nav" aria-label="相关">
+        <a href="terms.html">使用条款</a>
+      </nav>
+    </div>
+
+    <footer class="footer">
+      <p>© MemorySprout. All rights reserved.</p>
+      <p class="web-only-footer-links">Questions: <a href="mailto:memorysprout@gmail.com">memorysprout@gmail.com</a></p>
+    </footer>
+  </main>
+  <script>
+
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var embed = params.get("embed") === "1" || params.get("embed") === "true"
+    || document.documentElement.classList.contains("app-embed")
+    || window.__msLegalEmbed === true;
+  if (embed) document.documentElement.classList.add("app-embed");
+
+  function normalize(raw) {
+    raw = (raw || "").toLowerCase();
+    if (raw.indexOf("zh") === 0 || raw === "cn" || raw === "hans") return "zh";
+    return "en";
+  }
+
+  var raw = params.get("lang") || window.__msLegalLang || "";
+  var lang = normalize(raw);
+  try {
+    if (!raw && !embed && /zh/i.test(navigator.language || "")) lang = "zh";
+  } catch (e) {}
+
+  function apply(next) {
+    lang = next === "zh" ? "zh" : "en";
+    document.documentElement.lang = lang === "zh" ? "zh-Hans" : "en";
+    document.querySelectorAll(".lang-panel").forEach(function (el) {
+      el.hidden = el.getAttribute("data-lang") !== lang;
+    });
+    document.querySelectorAll(".lang-switch button").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", btn.getAttribute("data-lang") === lang ? "true" : "false");
+    });
+    var title = document.querySelector('.lang-panel[data-lang="' + lang + '"] h1');
+    if (title) document.title = title.textContent + " · MemorySprout";
+    try {
+      var u = new URL(window.location.href);
+      u.searchParams.set("lang", lang === "zh" ? "zh-Hans" : "en");
+      if (embed) u.searchParams.set("embed", "1");
+      history.replaceState(null, "", u.pathname + u.search + u.hash);
+    } catch (e) {}
+  }
+
+  window.__msApplyLegalLang = function (value) {
+    apply(normalize(value));
+  };
+
+  document.querySelectorAll(".lang-switch button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      apply(btn.getAttribute("data-lang"));
+    });
+  });
+
+  apply(lang);
+})();
+
+  </script>
+</body>
+</html>

@@ -1,7 +1,8 @@
-/* MemorySprout legal H5 - trust-first, paper calm.
-   Design Read: legal docs for App Store + desktop/mobile readers.
+/* MemorySprout legal H5
+   Design Read: trust-first legal reading for overseas users + App embed.
    Dials: VARIANCE 3 / MOTION 2 / DENSITY 4
-   Tokens align with docs/MemorySprout-Design-System.md (warm paper, secondary green links). */
+   References: Apple Legal / Google Privacy (single-column, lang switch, quiet chrome).
+   Tokens align with MemorySprout design system. */
 
 :root {
   --bg: #fff8f4;
@@ -13,12 +14,13 @@
   --accent-soft: #d1f2d8;
   --primary: #9d4400;
   --line: #e7d8ce;
-  --radius: 12px;
-  --shadow: 0 1px 0 rgba(33, 26, 18, 0.04);
-  --font: "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC",
-    system-ui, -apple-system, sans-serif;
-  --measure: 42rem;
-  --pad: clamp(1rem, 3vw, 2rem);
+  --radius: 10px;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+    "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Helvetica Neue",
+    sans-serif;
+  --measure: 40rem;
+  --pad: clamp(1rem, 4vw, 1.75rem);
+  --header-h: 3.25rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,7 +34,6 @@
     --accent-soft: #2d3a2c;
     --primary: #c46a32;
     --line: #3a3b34;
-    --shadow: none;
   }
 }
 
@@ -44,6 +45,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -58,19 +60,15 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font);
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 1.0625rem;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: contain;
 }
 
 a {
   color: var(--accent);
   text-underline-offset: 0.15em;
-}
-
-a:hover {
-  color: var(--primary);
 }
 
 a:focus-visible {
@@ -79,23 +77,19 @@ a:focus-visible {
   border-radius: 2px;
 }
 
-.shell {
-  width: min(100%, calc(var(--measure) + 2 * var(--pad)));
-  margin: 0 auto;
-  padding: 0 var(--pad) 4rem;
-}
-
+/* --- Top bar: title + language switch only --- */
 .topbar {
   position: sticky;
   top: 0;
-  z-index: 10;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  z-index: 20;
+  min-height: var(--header-h);
   border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-@supports not (backdrop-filter: blur(10px)) {
+@supports not (backdrop-filter: blur(12px)) {
   .topbar {
     background: var(--bg);
   }
@@ -104,204 +98,169 @@ a:focus-visible {
 .topbar-inner {
   width: min(100%, calc(var(--measure) + 2 * var(--pad)));
   margin: 0 auto;
-  padding: 0.75rem var(--pad);
+  padding: 0.55rem var(--pad);
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem 1rem;
   justify-content: space-between;
+  gap: 0.75rem;
+  min-height: var(--header-h);
 }
 
 .brand {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: var(--ink);
+  font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-.brand span {
+  letter-spacing: -0.01em;
   color: var(--muted);
-  font-weight: 500;
-  font-size: 0.875rem;
-}
-
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  align-items: center;
-}
-
-.nav a {
   text-decoration: none;
-  color: var(--muted);
-  font-size: 0.875rem;
-  padding: 0.4rem 0.65rem;
+  white-space: nowrap;
+}
+
+.brand strong {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+/* Segmented language control (Apple-style) */
+.lang-switch {
+  display: inline-flex;
+  padding: 0.2rem;
   border-radius: 999px;
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  gap: 0.15rem;
 }
 
-.nav a[aria-current="page"] {
-  color: var(--ink);
-  background: var(--accent-soft);
+.lang-switch button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.8125rem;
   font-weight: 600;
+  line-height: 1;
+  padding: 0.55rem 0.85rem;
+  min-height: 36px;
+  min-width: 44px;
+  border-radius: 999px;
+  cursor: pointer;
 }
 
-.nav a:hover {
+.lang-switch button[aria-pressed="true"] {
+  background: var(--accent-soft);
   color: var(--ink);
-  background: color-mix(in srgb, var(--accent-soft) 55%, transparent);
+}
+
+.lang-switch button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.shell {
+  width: min(100%, calc(var(--measure) + 2 * var(--pad)));
+  margin: 0 auto;
+  padding: 1.25rem var(--pad) 3.5rem;
+}
+
+h1 {
+  margin: 0.25rem 0 0.75rem;
+  font-size: clamp(1.5rem, 5vw, 1.875rem);
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  font-weight: 700;
 }
 
 .meta {
-  margin: 1.75rem 0 2rem;
+  margin: 0 0 1.5rem;
   color: var(--muted);
   font-size: 0.9375rem;
 }
 
 .meta p {
-  margin: 0.25rem 0;
-}
-
-h1 {
-  margin: 1.5rem 0 0.5rem;
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  line-height: 1.25;
-  letter-spacing: -0.03em;
-  font-weight: 650;
+  margin: 0.2rem 0;
 }
 
 article h2 {
-  margin: 2rem 0 0.75rem;
-  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+  margin: 2rem 0 0.65rem;
+  font-size: 1.125rem;
   line-height: 1.35;
   letter-spacing: -0.02em;
-  font-weight: 650;
-  scroll-margin-top: 4.5rem;
+  font-weight: 700;
+  scroll-margin-top: calc(var(--header-h) + 0.75rem);
 }
 
 article p,
-article ul,
 article li {
-  color: var(--ink);
+  max-width: 65ch;
 }
 
 article p {
-  margin: 0 0 0.9rem;
-  max-width: 65ch;
+  margin: 0 0 0.85rem;
 }
 
 article ul {
   margin: 0 0 1rem;
-  padding-left: 1.25rem;
+  padding-left: 1.2rem;
   max-width: 65ch;
 }
 
 article li {
-  margin: 0.35rem 0;
+  margin: 0.3rem 0;
 }
 
 article li::marker {
   color: var(--accent);
 }
 
-.note {
-  margin: 1rem 0 1.5rem;
-  padding: 0.85rem 1rem;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  color: var(--muted);
-  font-size: 0.9375rem;
-  max-width: 65ch;
-}
-
 .footer {
-  margin-top: 3rem;
-  padding-top: 1.25rem;
+  margin-top: 2.5rem;
+  padding-top: 1.1rem;
   border-top: 1px solid var(--line);
   color: var(--tertiary);
   font-size: 0.8125rem;
 }
 
 .footer p {
-  margin: 0.35rem 0;
+  margin: 0.3rem 0;
   max-width: none;
 }
 
-.toc {
-  display: none;
+/* Public-only: link to the other legal doc (hidden in app embed) */
+.web-only-nav {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
 }
 
-@media (min-width: 1100px) {
-  .layout {
-    display: grid;
-    grid-template-columns: var(--measure) 12rem;
-    gap: 2.5rem;
-    width: min(100%, calc(var(--measure) + 14.5rem + 2 * var(--pad)));
-    margin: 0 auto;
-    padding: 0 var(--pad) 4rem;
-  }
-
-  .layout > .shell {
-    width: auto;
-    margin: 0;
-    padding: 0;
-  }
-
-  .toc {
-    display: block;
-    position: sticky;
-    top: 5rem;
-    align-self: start;
-    font-size: 0.8125rem;
-    color: var(--muted);
-  }
-
-  .toc strong {
-    display: block;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
-
-  .toc a {
-    display: block;
-    text-decoration: none;
-    color: var(--muted);
-    padding: 0.25rem 0;
-    line-height: 1.4;
-  }
-
-  .toc a:hover {
-    color: var(--accent);
-  }
+.web-only-nav a {
+  text-decoration: none;
+  font-weight: 600;
 }
 
-html.app-embed .topbar,
-html.app-embed .toc,
-html.app-embed .note,
-html.app-embed .footer {
+.lang-panel[hidden] {
   display: none !important;
 }
 
-html.app-embed .layout {
-  display: block;
-  width: min(100%, calc(var(--measure) + 2 * var(--pad)));
-  margin: 0 auto;
-  padding: 0 var(--pad) 2rem;
+/* App embed: lock to one document; keep lang switch; hide cross-links */
+html.app-embed .brand {
+  pointer-events: none;
 }
 
-html.app-embed .shell {
-  padding: 0;
-  width: auto;
+html.app-embed .web-only-nav,
+html.app-embed .web-only-footer-links {
+  display: none !important;
 }
 
-html.app-embed h1 {
-  margin-top: 0.75rem;
+html.app-embed body {
+  /* Prevent accidental pull-to-refresh feel inside WKWebView */
+  overscroll-behavior: none;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .lang-switch button {
+    padding: 0.5rem 0.7rem;
+  }
 }
