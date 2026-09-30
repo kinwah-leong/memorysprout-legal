@@ -240,15 +240,8 @@ article li::marker {
   display: none !important;
 }
 
-/* App embed: lock to one document; keep lang switch; hide cross-links */
-html.app-embed .brand {
-  display: none;
-}
-
-html.app-embed .topbar-inner {
-  justify-content: flex-end;
-}
-
+/* App embed: one document only; language comes from App, no web chrome */
+html.app-embed .topbar,
 html.app-embed .web-only-nav,
 html.app-embed .web-only-footer-links {
   display: none !important;
