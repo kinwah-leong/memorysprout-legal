@@ -242,7 +242,11 @@ article li::marker {
 
 /* App embed: lock to one document; keep lang switch; hide cross-links */
 html.app-embed .brand {
-  pointer-events: none;
+  display: none;
+}
+
+html.app-embed .topbar-inner {
+  justify-content: flex-end;
 }
 
 html.app-embed .web-only-nav,

@@ -5,14 +5,18 @@ Source of truth for Privacy Policy and Terms of Use.
 **Developer:** ManLin Zhao  
 **Public hosting:** Option B — separate public repo `memorysprout-legal` (app source stays private).
 
-## Public URLs (after Pages is enabled on `memorysprout-legal`)
+## Public URLs
+
+Each document is **one bilingual page**. English | 中文 is a language toggle (not four separate nav items).
 
 | Doc | URL |
 |---|---|
-| Privacy (EN) | https://kinwah-leong.github.io/memorysprout-legal/legal/privacy-en.html |
-| Terms (EN) | https://kinwah-leong.github.io/memorysprout-legal/legal/terms-en.html |
-| 隐私政策 | https://kinwah-leong.github.io/memorysprout-legal/legal/privacy-zh-Hans.html |
-| 用户协议 | https://kinwah-leong.github.io/memorysprout-legal/legal/terms-zh-Hans.html |
+| Privacy Policy | https://kinwah-leong.github.io/memorysprout-legal/legal/privacy.html |
+| Terms of Use | https://kinwah-leong.github.io/memorysprout-legal/legal/terms.html |
+| Privacy (中文) | https://kinwah-leong.github.io/memorysprout-legal/legal/privacy.html?lang=zh-Hans |
+| Terms (中文) | https://kinwah-leong.github.io/memorysprout-legal/legal/terms.html?lang=zh-Hans |
+
+Legacy per-locale paths (`privacy-en.html`, …) redirect to the bilingual pages.
 
 App Release uses:
 
@@ -20,27 +24,23 @@ App Release uses:
 MEMORYSPROUT_LEGAL_BASE_URL = https://kinwah-leong.github.io/memorysprout-legal
 ```
 
-and loads `$BASE/legal/<file>.html`.
+and loads `$BASE/legal/privacy.html?embed=1&lang=…` or `terms.html?embed=1&lang=…`.
+
+### App embed lock
+
+With `?embed=1` (also injected by the iOS WKWebView):
+
+- Language toggle stays available
+- Cross-document links (other policy, legal index) are hidden
+- WKWebView cancels navigation away from the opened document
 
 ## One-time setup
 
 Local tree is prepared at `/Users/aimo/memorysprout-legal` (synced from `web/legal/`).
 
 ```bash
-# 1) Create empty PUBLIC repo on GitHub named memorysprout-legal (under kinwah-leong)
-# 2) Push:
-cd /Users/aimo/memorysprout-legal
-git remote add origin git@github.com:kinwah-leong/memorysprout-legal.git
-git push -u origin main
-
-# 3) GitHub → memorysprout-legal → Settings → Pages
-#    Source: Deploy from a branch → main → / (root) → Save
-```
-
-`gh` is not logged in on this machine; create the repo in the GitHub website or run `gh auth login` then:
-
-```bash
-gh repo create kinwah-leong/memorysprout-legal --public --source=/Users/aimo/memorysprout-legal --remote=origin --push
+# GitHub → memorysprout-legal → Settings → Pages
+# Source: Deploy from a branch → main → / (root) → Save
 ```
 
 ## Update legal content later
@@ -71,6 +71,6 @@ Also under `ios/MemorySprout/Legal/*.md` / `*.html` for test builds.
 
 ## Still to complete
 
-- Create + push `memorysprout-legal`, enable Pages, confirm URLs open
+- Confirm Pages returns HTTP 200 for `privacy.html` / `terms.html`
 - Custom domain / monitored emails when ready
 - Correspondence address, governing law
